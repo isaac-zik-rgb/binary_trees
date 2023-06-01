@@ -23,6 +23,10 @@ return (NULL);
 }
 new_node->n = value;
 new_node->parent = parent;
+ if (parent->left != NULL)
+{
+parent->left->parent = new_node;
+}
 new_node->left = parent->left;
 new_node->right = NULL;
 parent->left = new_node;
