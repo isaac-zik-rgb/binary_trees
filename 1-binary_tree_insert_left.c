@@ -23,13 +23,12 @@ if (new_node == NULL)
 {
 return (NULL);  /* Memory allocation failed, return NULL */
 }
-
-new_node->parent = parent;
-new_node->n = value;
 if (parent->left != NULL)
 {
-parent->left = new_node;
+new_node = parent->left;
 }
+new_node->parent = parent;
+new_node->n = value;
 new_node->left = parent->left;
 parent->left = new_node;/* Set the new node as the left-child */
 new_node->right = NULL;
