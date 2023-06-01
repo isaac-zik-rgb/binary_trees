@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <stdlib.h>
 #include "binary_trees.h"
 
@@ -24,6 +23,7 @@ binary_tree_t *binary_tree_insert_left(binary_tree_t *parent, int value)
     return NULL;  /* Memory allocation failed, return NULL */
   }
 
+  new_node->parent = parent;
     new_node->n = value;
     new_node->left = parent->left;  /* Set the existing left-child as the left-child of the new node */
     new_node->right = NULL;  /* Set the right-child of the new node to NULL */
