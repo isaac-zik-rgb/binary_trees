@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include "binary_trees.h"
 
 /**
@@ -30,6 +31,6 @@ new_node->n = value;
 new_node->left = parent->left;
 new_node->right = NULL;  /* Set the right-child of the new node to NULL */
 parent->left = new_node;  /* Set the new node as the left-child */
-
+parent->right = NULL;
 return (new_node);
 }
