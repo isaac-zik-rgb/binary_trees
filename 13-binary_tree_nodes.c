@@ -1,25 +1,20 @@
 #include "binary_trees.h"
 
 /**
- * binary_tree_nodes - Count the number of nodes that have at least one child
- * @tree: A pointer to the root node
+ * binary_tree_nodes - Counts the nodes with at least 1 child in a binary tree.
+ * @tree: A pointer to the root node of the tree to count the number of nodes.
  *
- * Return: if tree is NULL 0 else the number of nodes with 1 child
+ * Return: If tree is NULL, the function must return 0, else return node count.
  */
-
 size_t binary_tree_nodes(const binary_tree_t *tree)
 {
-size_t right;
-size_t left;
-if (tree == NULL)
-{
-return (0);
-}
-left = binary_tree_nodes(tree->left);
-right = binary_tree_nodes(tree->right);
-if (tree->left != NULL || tree->left != NULL)
-{
-return ((left + right)+1);
-}
-return (left + right);
+	size_t nodes = 0;
+
+	if (tree)
+	{
+		nodes += (tree->left || tree->right) ? 1 : 0;
+		nodes += binary_tree_nodes(tree->left);
+		nodes += binary_tree_nodes(tree->right);
+	}
+	return (nodes);
 }
